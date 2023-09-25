@@ -8,8 +8,11 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "first_name", nullable = false)
     private String firstname;
+    @Column(name = "second_name", nullable = false)
     private String secondname;
+    @Column(name = "email")
     private String email;
 
     public Student() {
