@@ -4,9 +4,7 @@ import com.example.studentmgt.entity.Student;
 import com.example.studentmgt.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/students")
@@ -29,5 +27,10 @@ public class StudentController {
         Student student = new Student();
         model.addAttribute("student", student);
         return "create_student";
+    }
+    @PostMapping("/save")
+    public String saveStudent(@ModelAttribute("student") Student student){
+        studentService.saveStudent(student);
+        return "redirect:/students";
     }
 }
