@@ -7,30 +7,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/students")
 public class StudentController {
-    private final StudentService studentService;
+
+    private StudentService studentService;
 
     public StudentController(StudentService studentService) {
         super();
         this.studentService = studentService;
     }
-    @GetMapping("/list")
-    public String listStudents(Model model){
+
+    // handler method to handle list students and return mode and view
+    @GetMapping("/students")
+    public String listStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
     }
 
-    @GetMapping("/new")
-    public String createStudentForm(Model model){
-        //create student object to hold student form data
+    @GetMapping("/students/new")
+    public String createStudentForm(Model model) {
+
+        // create student object to hold student form data
         Student student = new Student();
         model.addAttribute("student", student);
         return "create_student";
+
     }
-    @PostMapping("/save")
-    public String saveStudent(@ModelAttribute("student") Student student){
+
+    @PostMapping("/students")
+    public String saveStudent(@ModelAttribute("student") Student student) {
         studentService.saveStudent(student);
         return "redirect:/students";
-    }
-}
+    }}
