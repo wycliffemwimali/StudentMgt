@@ -10,7 +10,7 @@ public class Student {
     private Long id;
     @Column(name = "first_name", nullable = false)
     private String firstname;
-    @Column(name = "second_name", nullable = false)
+    @Column(name = "second_name")
     private String secondname;
     @Column(name = "email")
     private String email;
