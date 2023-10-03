@@ -14,7 +14,7 @@ Welcome to the Student Management System project built using Spring MVC. This we
 
 - **Spring MVC:** Java framework for building robust and scalable web applications.
 - **Hibernate:** ORM framework for database interaction and management.
-- **MySQL:** Relational database management system for storing student data.
+- **PostgreSQL:** Relational database management system for storing student data.
 - **HTML/CSS:** Frontend technologies for creating the user interface.
 - **Maven:** Dependency management tool for Java projects.
 
