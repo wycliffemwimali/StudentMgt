@@ -38,8 +38,28 @@ public class StudentController {
         studentService.saveStudent(student);
         return "redirect:/students";
     }
-    @GetMapping("/students/edit/{id]")
-    public String editStudentForm(@PathVariable Long id, Model model){
-
+    @GetMapping("/students/edit/{id}")
+    public String editStudentForm(@PathVariable Long id, Model model) {
+        model.addAttribute("student", studentService.getStudentById(id));
+        return "edit_student";
     }
+
+    @PostMapping("/students/{id}")
+    public String updateStudent(@PathVariable Long id,
+                                @ModelAttribute("student") Student student,
+                                Model model) {
+
+        // get student from database by id
+        Student existingStudent = studentService.getStudentById(id);
+        existingStudent.setId(id);
+        existingStudent.setFirstname(student.getFirstname());
+        existingStudent.setSecondname(student.getSecondname());
+        existingStudent.setEmail(student.getEmail());
+
+        // save updated student object
+        studentService.updateStudent(existingStudent);
+        return "redirect:/students";
+    }
+
+
 }
