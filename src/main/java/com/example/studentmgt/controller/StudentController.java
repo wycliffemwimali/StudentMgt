@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class StudentController {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
         super();
@@ -37,4 +37,9 @@ public class StudentController {
     public String saveStudent(@ModelAttribute("student") Student student) {
         studentService.saveStudent(student);
         return "redirect:/students";
-    }}
+    }
+    @GetMapping("/students/edit/{id]")
+    public String editStudentForm(@PathVariable Long id, Model model){
+
+    }
+}
