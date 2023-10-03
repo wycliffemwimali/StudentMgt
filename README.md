@@ -28,7 +28,7 @@ Follow these steps to set up and run the project locally:
    
 2. **Database Configuration:**
 
-  Create a MySQL database named student_management_system.
+  Create a Postgres database named student_management_system.
   Update the database connection details in src/main/resources/application.properties.
   Build and Run:
   ```bash
